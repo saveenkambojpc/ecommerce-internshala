@@ -36,10 +36,10 @@ const Checkout = () => {
       {cart.length !== 0 && (
         <div className="flex w-full flex-wrap p-3 lg:px-36 lg:py-10">
           <div className="w-full lg:w-2/3 lg:px-10">
-            <h2 className="text-2xl font-bold ">Shopping Cart</h2>
+            <h2 className="text-2xl font-bold my-5 ">Shopping Cart</h2>
 
-            <div className="border-b">
-              <div className="flex border-b mt-5 pb-2  text-xs font-semibold">
+            <div className="border-b ">
+              <div className="flex border-b mt-20 pb-2   text-xs font-semibold">
                 <h4 className="w-1/2">Product</h4>
                 <h4 className="w-1/6">Quantity</h4>
                 <h4 className="w-1/6">Total Price</h4>
@@ -80,7 +80,7 @@ const Checkout = () => {
                 ))}
             </div>
 
-            <div className=" flex justify-between mt-5">
+            <div className=" flex justify-between mt-10">
               <Link to="/category" className="flex items-center">
                 <button className="bg-purple-100 flex space-x-1 items-center  py-2 px-4   rounded-lg text-purple-800 font-semibold">
                   <GrFormPrevious className="text-purple-800 text-2xl" />

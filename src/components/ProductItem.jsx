@@ -36,8 +36,8 @@ const ProductItem = ({ product, handleAddToCart }) => {
   }
 
   return (
-    <div className={`p-2 m-3 md:mx-6 md:my-2 shadow-purple-200 transition-all   shadow-md min-h-full rounded-2xl ${renderDelivered(delivery) ? "grayscale" : "hover:scale-105"}`}>
-      <img src={thumbnail} className="w-40" alt="" />
+    <div className={`m-2 md:mx-6 md:my-4 p-3  shadow-purple-200 transition-all   shadow-md  rounded-2xl ${renderDelivered(delivery) ? "grayscale" : "hover:scale-105"}`}>
+      <img src={thumbnail} className="w-28 md:w-40" alt="" />
       <h4 className="font-semibold mt-2">{name}</h4>
       <h5 className="text-gray-500 text-sm mb-2">₹{price}</h5>
       <button

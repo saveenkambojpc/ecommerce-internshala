@@ -12,6 +12,7 @@ import { CartProvider } from './context/cart.context';
 
 const routes = [
   { path: "/", component: <Home /> },
+  { path: "/ecommerce-internshala", component: <Home /> },
   { path: "/checkout", component: <Checkout /> },
   { path: "/category", component: <Category /> },
   { path: "/category/:id", component: <Category /> },
