@@ -16,7 +16,7 @@ const ProductGrid = ({ products, id }) => {
           {getCategoryNameById(id)}
         </h3>
 
-        <div className="flex items-center flex-wrap justify-around md:justify-center  mt-5">
+        <div className="flex items-center flex-wrap justify-evenly md:justify-center  mt-5">
           {products.map((e) => (
             <ProductItem key={e.id} product={e} />
           ))}
