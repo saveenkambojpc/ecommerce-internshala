@@ -74,7 +74,7 @@ const Navbar = () => {
 
           <button className="bg-purple-100 flex items-center px-3 py-2 rounded-lg text-purple-800 font-semibold">
             <span className="mx-2">₹{calculateGrandTotalPrice()}</span>
-            <span class="inline-flex justify-center items-center ml-2 w-4 h-4 text-xs font-semibold text-purple-800 bg-purple-200 rounded-full">
+            <span className="inline-flex justify-center items-center ml-2 w-4 h-4 text-xs font-semibold text-purple-800 bg-purple-200 rounded-full">
               {getNumberOfItemInCart()}
             </span>
           </button>

@@ -9,7 +9,6 @@ const ProductItem = ({ product, handleAddToCart }) => {
   const [btnText, setBtnText] = useState("Add to Cart");
   const { isDelivered } = useProduct();
 
-  console.log("Value of isDelvered", isDelivered);
   useEffect(() => {
     // Update the button value
     cart.forEach((e) => {
@@ -47,12 +46,12 @@ const ProductItem = ({ product, handleAddToCart }) => {
       <h5 className="text-gray-400 font-bold text-sm mb-2">₹{price}</h5>
       <button
         disabled={renderDelivered(delivery)}
-        ref={ref}
+        
         className={`bg-purple-500 ${
           renderDelivered(delivery) || "hover:bg-purple-700"
         } text-white font-bold py-2 px-4 rounded`}
         onClick={() => {
-          handleCartToggler(id, ref);
+          handleCartToggler(id);
           updateButtonText(id);
         }}
       >

@@ -11,14 +11,13 @@ export const CartProvider = ({ children }) => {
 
     const [cart, setCart] = useState([]);
     const [quantity, setQuantity] = useState(1)
-    const {products} = useProduct();
+    const { products } = useProduct();
 
     const [isInitiallyFetched, setIsInitiallyFetched] = useState(false);
 
     // copy from stackoverflow
     useEffect(() => {
         let prev_items = JSON.parse(localStorage.getItem('cart')) || [];
-        prev_items['quantity'] = 1;
         setCart(prev_items);
         setIsInitiallyFetched(true)
     }, [])
@@ -28,6 +27,8 @@ export const CartProvider = ({ children }) => {
             localStorage.setItem("cart", JSON.stringify(cart));
         }
     }, [cart]);
+
+ 
 
 
 
@@ -47,44 +48,48 @@ export const CartProvider = ({ children }) => {
     }
 
     const removeProductFromCart = (id) => {
+        console.log("You clicked on Remove Product from Cart Button")
         const product = getProductById(products, id);
         setCart(cart => cart.filter(e => e != product))
     }
 
 
-
-
-
-
-
     // Add or Remove Item from the Cart
     const handleCartToggler = (id) => {
+
         const product = getProductById(products, id);
+        product['quantity'] = 1;
 
         // Check if product already available if true then we remove it
-        if (cart.includes(product)) {
-            setCart(cart => cart.filter(e => e != product))
+        let isPresent = false;
+        cart.forEach(item => {
+            if(item.id === product.id){
+                isPresent = true;
+            }
+        })
+        
+        if (isPresent) {
+            setCart(cart => cart.filter(item => item.id !== product.id))
         }
         else {
-            product['quantity'] = 1;
             setCart(cart => [...cart, product])
         }
 
     }
 
-    const calculateTotalPrice = (price,qt) => {
+    const calculateTotalPrice = (price, qt) => {
         return price * qt;
     }
 
     const calculateGrandTotalPrice = () => {
         let amount = 0;
         cart.forEach(e => {
-            amount += calculateTotalPrice(e.price,e.quantity)
+            amount += calculateTotalPrice(e.price, e.quantity)
         })
         return amount;
     }
 
-    const getNumberOfItemInCart = () =>{
+    const getNumberOfItemInCart = () => {
 
         return cart.length;
     }

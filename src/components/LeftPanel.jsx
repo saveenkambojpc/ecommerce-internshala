@@ -12,49 +12,49 @@ const LeftPanel = () => {
       <div className=" flex  md:flex-col flex-col">
         <h4 className="text-xl font-semibold">Filter</h4>
         <div className="my-3 ">
-          <div class="flex items-center  md:mb-4">
+          <div className="flex items-center  md:mb-4">
             <input
               id="default-checkbox"
               type="checkbox"
               value="delivery"
-              class="w-4 h-4 text-purple-600 bg-gray-100 rounded border-gray-300 focus:ring-purple-500 dark:focus:ring-purple-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 cursor-pointer"
+              className="w-4 h-4 text-purple-600 bg-gray-100 rounded border-gray-300 focus:ring-purple-500 dark:focus:ring-purple-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 cursor-pointer"
               onChange={handleDeliveryBox}
             />
             <label
-              for="default-checkbox"
-              class="ml-2 text-sm font-medium text-gray-600 dark:text-gray-300"
+              htmlFor="default-checkbox"
+              className="ml-2 text-sm font-medium text-gray-600 dark:text-gray-300"
             >
               Delivery
             </label>
           </div>
 
-          <div class="flex items-center md:mb-4">
+          <div className="flex items-center md:mb-4">
             <input
               id="default-checkbox"
               type="checkbox"
               value=""
-              class="w-4 h-4 text-purple-600 bg-gray-100 rounded border-gray-300 focus:ring-purple-500 dark:focus:ring-purple-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+              className="w-4 h-4 text-purple-600 bg-gray-100 rounded border-gray-300 focus:ring-purple-500 dark:focus:ring-purple-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
               disabled
             />
             <label
-              for="default-checkbox"
-              class="ml-2 text-sm font-medium text-gray-600 dark:text-gray-300"
+              htmlFor="default-checkbox"
+              className="ml-2 text-sm font-medium text-gray-600 dark:text-gray-300"
             >
               Expensive
             </label>
           </div>
 
-          <div class="flex items-center md:mb-4">
+          <div className="flex items-center md:mb-4">
             <input
               id="default-checkbox"
               type="checkbox"
               value=""
-              class="w-4 h-4 text-purple-600 bg-gray-100 rounded border-gray-300 focus:ring-purple-500 dark:focus:ring-purple-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+              className="w-4 h-4 text-purple-600 bg-gray-100 rounded border-gray-300 focus:ring-purple-500 dark:focus:ring-purple-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
               disabled
             />
             <label
-              for="default-checkbox"
-              class="ml-2 text-sm font-medium text-gray-600 dark:text-gray-300"
+              htmlFor="default-checkbox"
+              className="ml-2 text-sm font-medium text-gray-600 dark:text-gray-300"
             >
               Best Selling
             </label>
