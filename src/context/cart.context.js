@@ -13,6 +13,10 @@ export const CartProvider = ({ children }) => {
     const [quantity, setQuantity] = useState(1)
     const { products } = useProduct();
 
+
+
+
+
     const [isInitiallyFetched, setIsInitiallyFetched] = useState(false);
 
     // copy from stackoverflow
@@ -28,7 +32,7 @@ export const CartProvider = ({ children }) => {
         }
     }, [cart]);
 
- 
+
 
 
 
@@ -47,15 +51,12 @@ export const CartProvider = ({ children }) => {
         }
     }
 
-    const removeProductFromCart = (id) => {
-        console.log("You clicked on Remove Product from Cart Button")
-        const product = getProductById(products, id);
-        setCart(cart => cart.filter(e => e != product))
-    }
+   
 
 
     // Add or Remove Item from the Cart
     const handleCartToggler = (id) => {
+
 
         const product = getProductById(products, id);
         product['quantity'] = 1;
@@ -63,11 +64,12 @@ export const CartProvider = ({ children }) => {
         // Check if product already available if true then we remove it
         let isPresent = false;
         cart.forEach(item => {
-            if(item.id === product.id){
+            if (item.id === product.id) {
                 isPresent = true;
+                
             }
         })
-        
+
         if (isPresent) {
             setCart(cart => cart.filter(item => item.id !== product.id))
         }
@@ -98,13 +100,15 @@ export const CartProvider = ({ children }) => {
 
     const value = {
         cart,
+        setCart,
         handleCartToggler,
         increaseQuantity,
         decreaseQuantity,
-        removeProductFromCart,
         calculateTotalPrice,
         calculateGrandTotalPrice,
-        getNumberOfItemInCart
+        getNumberOfItemInCart,
+ 
+  
 
     }
     return <CartContext.Provider value={value}>

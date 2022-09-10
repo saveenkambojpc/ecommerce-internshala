@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { set } from "rsuite/esm/utils/dateUtils";
 import { useCart } from "../context/cart.context";
 import { useProduct } from "../context/products.context";
 
@@ -6,24 +7,24 @@ const ProductItem = ({ product, handleAddToCart }) => {
   const { name, price, currency, id, thumbnail, delivery } = product;
   const { cart, handleCartToggler } = useCart();
   const ref = useRef();
-  const [btnText, setBtnText] = useState("Add to Cart");
   const { isDelivered } = useProduct();
+  const [btnText,setBtnText] = useState('Add to Cart')
+
 
   useEffect(() => {
-    // Update the button value
-    cart.forEach((e) => {
-      if (e.id === id) {
-        setBtnText("Remove");
+    cart.forEach(item =>{
+      if(item.id === id){
+        setBtnText('Remove')
       }
-    });
-  }, [id]);
+    })
+  }, []);
 
-  const updateButtonText = (id) => {
-    if (btnText === "Add to Cart") {
-      setBtnText("Remove");
-    } else {
-      setBtnText("Add to Cart");
-    }
+  const updateButtonText = () => {
+    setBtnText('Remove')
+    if(btnText === 'Remove'){
+      setBtnText("Add to Cart")
+    }    
+
   };
 
   // Check when Delivered checkbox is ticked and we calculate the delivered items
@@ -45,8 +46,9 @@ const ProductItem = ({ product, handleAddToCart }) => {
       <h4 className="font-semibold mt-2">{name}</h4>
       <h5 className="text-gray-400 font-bold text-sm mb-2">₹{price}</h5>
       <button
+        ref={ref}
         disabled={renderDelivered(delivery)}
-        
+        id={`toggleBtn-${id}`}
         className={`bg-purple-500 ${
           renderDelivered(delivery) || "hover:bg-purple-700"
         } text-white font-bold py-2 px-4 rounded`}

@@ -8,16 +8,28 @@ import {
 import { GrFormPrevious } from "react-icons/gr";
 
 import { Link } from "react-router-dom";
+import { getProductById } from "../misc/helper";
+import { useProduct } from "../context/products.context";
 
 const Cart = () => {
   const {
     cart,
     increaseQuantity,
     decreaseQuantity,
-    removeProductFromCart,
     calculateTotalPrice,
     calculateGrandTotalPrice,
+    setCart
   } = useCart();
+  const { products } = useProduct();
+
+  const removeProductFromCart = (id) => {
+    const product = getProductById(products, id);
+    let btn = document.getElementById(`toggleBtn-${id}`)
+    btn.innerText = "Add to Cart"
+    setCart(cart => cart.filter(item => item.id !== product.id))
+    
+
+}
 
   return (
     <div>

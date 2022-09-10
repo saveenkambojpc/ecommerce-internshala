@@ -25,13 +25,13 @@ function App() {
     <ProductProvider>
       <CartProvider>
         <Navbar />
-        {/* <div className='px-20 border'> */}
+        
 
         <Switch>
           {routes.map(e => <Route key={e.path} exact path={e.path}>{e.component}</Route>)}
 
         </Switch>
-        {/* </div> */}
+        
       </CartProvider>
     </ProductProvider>
 

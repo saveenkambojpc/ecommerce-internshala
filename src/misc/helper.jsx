@@ -30,3 +30,4 @@ export function getCategoryNameById(id) {
   });
   return name;
 }
+
